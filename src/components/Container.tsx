@@ -5,7 +5,6 @@ import styles from './styles/ContainerStyles';
 
 interface Props { 
   style?: StyleProp<ViewStyle>;
-  navigation?: NavigationStackProp;
 }
 
 interface State { }

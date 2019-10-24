@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 
 export interface Props {
 	text: string;
+	onPress: () => void;
 }
 
 interface State {
@@ -17,7 +18,7 @@ class Button extends React.Component<Props, State>  {
 	render() {
 		return (
 			<View style={{}}>
-				<TouchableOpacity style={{}}>
+				<TouchableOpacity style={{}} onPress={this.props.onPress}>
 					<Text>
 						{this.props.text}
 					</Text>

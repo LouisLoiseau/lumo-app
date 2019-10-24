@@ -1,4 +1,5 @@
 import { Dimensions } from 'react-native';
+import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,5 +15,6 @@ const isIphoneX = () => {
 export default {
   screenWidth: width,
   screenHeight: height,
-  isIphoneX: isIphoneX()
+  isIphoneX: isIphoneX(),
+  statusBarHeight: Constants.statusBarHeight
 }
