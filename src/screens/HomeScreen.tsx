@@ -29,8 +29,8 @@ class HomeScreen extends React.Component<Props, State> {
 	}
 
 	handleQrCodeScan({ type, data }) {
-		console.log(type, data);
 		this.setState({ isScannerVisible: false });
+		// make api call
 	}
 
 	render() {
@@ -38,7 +38,7 @@ class HomeScreen extends React.Component<Props, State> {
 			<Container>
 				<Button text={"Scanner un QrCode"} onPress={() => this.getPermissions()}/>
 				{this.state.isScannerVisible === true &&
-					<Scanner onScanEnd={(data) => this.handleQrCodeScan(data)}/>
+					<Scanner onScanEnd={(data: any) => this.handleQrCodeScan(data)}/>
 				}
 			</Container>
 		)
