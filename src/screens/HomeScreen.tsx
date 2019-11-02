@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { Container, Button, Scanner } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
+import { I18n } from '@/lib';
 
 interface Props {
 	navigation?: NavigationStackProp;
@@ -40,6 +41,10 @@ class HomeScreen extends React.Component<Props, State> {
 				{this.state.isScannerVisible === true &&
 					<Scanner onScanEnd={(data: any) => this.handleQrCodeScan(data)}/>
 				}
+				<Text>{I18n.t('home.header_title')}</Text>
+				<TouchableOpacity onPress={() => {  }}>
+					<Text>En</Text>
+				</TouchableOpacity>
 			</Container>
 		)
 	}
