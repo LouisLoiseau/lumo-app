@@ -1,21 +1,25 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Container, Button, Scanner } from '@/components';
+import { View, Text } from 'react-native';
+import { Container, Button, Scanner, CodeInput } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
 
-interface Props {
+export interface State {
+	code: string;
+	isScannerVisible: boolean;
+}
+
+export interface Props {
 	navigation?: NavigationStackProp;
 }
 
-interface State {
-	isScannerVisible: Boolean;
-}
 class HomeScreen extends React.Component<Props, State> {
+	
 	constructor(props) {
 		super(props);
 		this.state = {
+			code: '',
 			isScannerVisible: false,
 		};
 	}
@@ -33,6 +37,10 @@ class HomeScreen extends React.Component<Props, State> {
 		// make api call
 	}
 
+	handleValueChange = value => {
+		this.setState({ code: value });
+	}
+
 	render() {
 		return (
 			<Container>
@@ -40,8 +48,12 @@ class HomeScreen extends React.Component<Props, State> {
 				{this.state.isScannerVisible === true &&
 					<Scanner onScanEnd={(data: any) => this.handleQrCodeScan(data)}/>
 				}
+				<Text>{this.state.code}</Text>
+				<View style={styles.container}>
+					<CodeInput codeLength={6} onValueChange={this.handleValueChange}/>
+				</View>
 			</Container>
-		)
+		);
 	}
 }
 
