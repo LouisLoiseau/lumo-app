@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, SafeAreaView, ViewStyle } from 'react-native';
-import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/ContainerStyles';
+import BaseComponent from './BaseComponent';
 
 interface Props { 
   style?: StyleProp<ViewStyle>;
@@ -9,7 +9,7 @@ interface Props {
 
 interface State { }
 
-class Container extends React.Component<Props, State> {
+class Container extends BaseComponent<Props, State> {
   constructor(props: Props) {
     super(props);
   }

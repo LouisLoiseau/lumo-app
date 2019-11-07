@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Container, Button, Scanner, CodeInput } from '@/components';
+import { Container, Button, Scanner, CodeInput, BaseComponent } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
-import { I18n } from '@/lib';
 
 export interface State {
 	code: string;
@@ -15,7 +14,7 @@ export interface Props {
 	navigation?: NavigationStackProp;
 }
 
-class HomeScreen extends React.Component<Props, State> {
+class HomeScreen extends BaseComponent<Props, State> {
 	
 	constructor(props) {
 		super(props);
