@@ -24,7 +24,7 @@ class HomeScreen extends React.Component<Props, State> {
 		};
 	}
 
-	getPermissions() {
+	getPermissions = () => {
 		Permissions.askAsync(Permissions.CAMERA).then(response => {
 			if (response.status === "granted") {
 				this.setState({ isScannerVisible: true });
@@ -32,21 +32,21 @@ class HomeScreen extends React.Component<Props, State> {
 		});
 	}
 
-	handleQrCodeScan({ type, data }) {
-		this.setState({ isScannerVisible: false });
-		// make api call
+	handleQrCodeScan = ({ type, data }) => {
+		let code = data.split('?code=')[1];
+		this.setState({ isScannerVisible: false, code });
 	}
 
-	handleValueChange = value => {
+	handleValueChange = (value: string) => {
 		this.setState({ code: value });
 	}
 
 	render() {
 		return (
 			<Container>
-				<Button text={"Scanner un QrCode"} onPress={() => this.getPermissions()}/>
+				<Button text={"Scanner un QrCode"} onPress={this.getPermissions}/>
 				{this.state.isScannerVisible === true &&
-					<Scanner onScanEnd={(data: any) => this.handleQrCodeScan(data)}/>
+					<Scanner onScanEnd={this.handleQrCodeScan}/>
 				}
 				<Text>{this.state.code}</Text>
 				<View style={styles.container}>

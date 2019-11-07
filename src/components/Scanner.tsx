@@ -7,9 +7,7 @@ interface Props {
   onScanEnd: (data: object) => void;
 }
 
-interface State {
-
-}
+interface State {  }
 
 class Scanner extends React.Component<Props, State> {
   constructor(props) {
