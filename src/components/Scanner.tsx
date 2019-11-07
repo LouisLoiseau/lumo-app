@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { BackHandler, View, BackHandlerStatic } from 'react-native';
 import styles from './styles/ScannerStyles';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import Button from './Button';
 
 interface Props {
   onScanEnd: (data: object) => void;
   onBackPress: () => void;
 }
 
-interface State {  }
+interface State { }
 
 class Scanner extends React.Component<Props, State> {
   backHandler: BackHandlerStatic;
@@ -25,9 +26,22 @@ class Scanner extends React.Component<Props, State> {
     this.backHandler.remove();
   }
 
+  renderCorners = (): ReactElement[] => {
+    return [
+      <View key={"topLeft"} style={[styles.targetCorner, styles.cornerTopLeft]}></View>,
+      <View key={"topRight"} style={[styles.targetCorner, styles.cornerTopRight]}></View>,
+      <View key={"bottomLeft"} style={[styles.targetCorner, styles.cornerBottomLeft]}></View>,
+      <View key={"bottomRight"} style={[styles.targetCorner, styles.cornerBottomRight]}></View>,
+    ];
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <Button text={"Back"} onPress={this.props.onBackPress} style={styles.backButton} />
+        <View style={styles.targetContainer}>
+          {this.renderCorners()}
+        </View>
         <BarCodeScanner
           barCodeTypes={[BarCodeScanner.Constants.BarCodeType.QrCode]}
           onBarCodeScanned={this.props.onScanEnd}
