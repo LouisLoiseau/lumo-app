@@ -17,6 +17,7 @@ export default StyleSheet.create({
     width: 32,
     top: 0,
     bottom: 0,
+    zIndex: 0
   },
 
   display: {

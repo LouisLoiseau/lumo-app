@@ -9,6 +9,7 @@ export default StyleSheet.create({
     top: Metrics.statusBarHeight,
     left: 0,
     backgroundColor: '#000',
+    zIndex: 1
   },
 
   scanner: {
