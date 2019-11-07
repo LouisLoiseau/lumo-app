@@ -4,6 +4,7 @@ import { Container, Button, Scanner, CodeInput } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
+import { I18n } from '@/lib';
 
 export interface State {
 	code: string;
