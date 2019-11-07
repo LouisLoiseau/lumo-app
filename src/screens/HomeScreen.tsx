@@ -46,7 +46,10 @@ class HomeScreen extends React.Component<Props, State> {
 			<Container>
 				<Button text={"Scanner un QrCode"} onPress={this.getPermissions}/>
 				{this.state.isScannerVisible === true &&
-					<Scanner onScanEnd={this.handleQrCodeScan}/>
+					<Scanner onScanEnd={this.handleQrCodeScan} onBackPress={() => {
+						this.setState({ isScannerVisible: false });
+						return true; // Important!
+					}}/>
 				}
 				<Text>{this.state.code}</Text>
 				<View style={styles.container}>

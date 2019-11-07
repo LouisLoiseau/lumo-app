@@ -15,7 +15,7 @@ export interface State {
 }
 
 class CodeInput extends React.Component<Props, State> {
-  input: React.RefObject<TextInput>;
+  private input: React.RefObject<TextInput>;
   CODE: Array<string | number>;
   constructor(props) {
     super(props);
