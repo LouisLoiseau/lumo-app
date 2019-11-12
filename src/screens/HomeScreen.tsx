@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Container, Button, Scanner, CodeInput, BaseComponent } from '@/components';
+import { Container, Button, Scanner, CodeInput, BaseComponent, DrawerButton } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
@@ -15,6 +15,9 @@ export interface Props {
 }
 
 class HomeScreen extends BaseComponent<Props, State> {
+	static navigationOptions = ({ navigation }) => ({
+		headerLeft: <DrawerButton navigation={navigation} />
+	}); 
 	
 	constructor(props) {
 		super(props);

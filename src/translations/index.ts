@@ -1,14 +1,18 @@
 import commonEn from './common.en.json';
 import commonFr from './common.fr.json';
+import routesFr from './routes.fr.json';
+import routesEn from './routes.en.json';
 
 let defaultLocale = 'fr';
 
 const fr = {
-  ...commonFr,
+  common: {...commonFr},
+  routes: {...routesFr},
 };
 
 const en = {
-  ...commonEn,
+  common: {...commonEn},
+  routes: {...routesEn},
 };
 
 export {
