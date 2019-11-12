@@ -25,7 +25,7 @@ class Drawer extends BaseComponent<Props, State> {
       <SafeAreaView style={{}}>
         {this.props.items.map(item => {
           return (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate(item.routeName) }>
+            <TouchableOpacity key={item.key} onPress={() => this.props.navigation.navigate(item.routeName)}>
               <Text>{item.routeName}</Text>
             </TouchableOpacity>
           );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import { BaseComponent } from '.';
+import BaseComponent from './BaseComponent';
 import { NavigationStackProp } from 'react-navigation-stack';
 
 interface Props {
