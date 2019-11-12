@@ -45,7 +45,7 @@ class HomeScreen extends BaseComponent<Props, State> {
 		return (
 			<Container navigation={this.props.navigation} headerBackButton={false}>
 				<Button onPress={this.getPermissions}>
-					<Text>{"Scanner un qrcode"}</Text>
+					<Text>{this.trs('common.home.scan_a_qrcode')}</Text>
 				</Button>
 				{this.state.isScannerVisible === true &&
 					<Scanner onScanEnd={this.handleQrCodeScan} onBackPress={() => {
