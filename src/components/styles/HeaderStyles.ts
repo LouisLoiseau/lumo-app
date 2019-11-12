@@ -11,7 +11,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'grey'
+    borderBottomColor: 'grey',
   },
 
   headerImage: {

@@ -42,7 +42,9 @@ class Header extends BaseComponent<Props, State> {
           <Text style={styles.headerTitle}>{title}</Text>
         </View> */}
         <View style={styles.headerPart}>
-          <Button onPress={onMenuPress} style={[styles.headerButton, styles.headerButtonRight]}>
+          <Button otherProps={{
+            disabled: true
+          }} onPress={() => {}} style={[styles.headerButton, styles.headerButtonRight]}>
             <Image source={Icons.header_logo} style={styles.headerImage} />
           </Button>
         </View>

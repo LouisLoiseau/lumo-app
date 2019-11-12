@@ -18,7 +18,7 @@ class CoursesListScreen extends BaseComponent<Props, State> {
 
 	render() {
 		return (
-			<Container>
+			<Container navigation={this.props.navigation}>
 				<Text>{this.trs('routes.coursesList.title')}</Text>
 			</Container>
 		);

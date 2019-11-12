@@ -4,8 +4,9 @@ import BaseComponent from './BaseComponent';
 import { NavigationDrawerProp } from 'react-navigation-drawer';
 import { SafeAreaView } from 'react-navigation';
 import { DrawerItemType } from '@/types/DrawerItemType';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles/DrawerStyles';
+import Button from './Button';
+import Header from './Header';
 
 interface Props {
   navigation?: NavigationDrawerProp;
@@ -17,20 +18,24 @@ interface State {
 }
 
 class Drawer extends BaseComponent<Props, State> {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {this.props.items.map(item => {
-          return (
-            <TouchableOpacity key={item.key} onPress={() => this.props.navigation.navigate(item.routeName)}>
-              <Text>{item.routeName}</Text>
-            </TouchableOpacity>
-          );
-        })}
+        <Header onMenuPress={this.props.navigation.toggleDrawer} />
+        <Text style={styles.drawerTitle}>{"Orsay"}</Text>
+        <View style={styles.drawerNavContainer}>
+          {this.props.items.map(item => {
+            return (
+              <Button
+                key={item.key}
+                onPress={() => this.props.navigation.navigate(item.routeName)}
+                style={styles.drawerNavButton}>
+                <Text style={styles.drawerNavButtonText}>{item.routeName}</Text>
+              </Button>
+            );
+          })}
+        </View>
+
       </SafeAreaView>
     );
   }
