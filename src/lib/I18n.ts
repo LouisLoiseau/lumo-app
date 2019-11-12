@@ -14,6 +14,7 @@ class I18n {
   }
 
   public static translate(key: string, params?: TranslatorParam): string {
+    console.log(key);
     this.locale = this.getCurrentLocale();
     let translation = this.deepTrans(key.split('.'), Translations[this.locale]);
     if (typeof translation !== 'string') {

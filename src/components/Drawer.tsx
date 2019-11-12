@@ -5,6 +5,7 @@ import { NavigationDrawerProp } from 'react-navigation-drawer';
 import { SafeAreaView } from 'react-navigation';
 import { DrawerItemType } from '@/types/DrawerItemType';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import styles from './styles/DrawerStyles';
 
 interface Props {
   navigation?: NavigationDrawerProp;
@@ -22,7 +23,7 @@ class Drawer extends BaseComponent<Props, State> {
 
   render() {
     return (
-      <SafeAreaView style={{}}>
+      <SafeAreaView style={styles.container}>
         {this.props.items.map(item => {
           return (
             <TouchableOpacity key={item.key} onPress={() => this.props.navigation.navigate(item.routeName)}>

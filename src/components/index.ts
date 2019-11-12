@@ -5,7 +5,6 @@ import CodeInput from './CodeInput';
 import BaseComponent from './BaseComponent';
 import Drawer from './Drawer';
 import Header from './Header';
-import DrawerButton from './DrawerButton';
 
 export {
   Button,
@@ -15,5 +14,4 @@ export {
   BaseComponent,
   Drawer,
   Header,
-  DrawerButton,
 }

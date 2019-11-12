@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import BaseComponent from './BaseComponent';
-import { NavigationStackProp } from 'react-navigation-stack';
-import { Scene } from 'react-navigation-stack/lib/typescript/types';
+import styles from './styles/HeaderStyles';
+import Button from './Button';
+import { Icons } from '@/constants';
 
 interface Props {
-  onMenuPress: () => void;
+  onMenuPress?: () => void;
+  onBackPress?: () => void;
   title?: string;
+  headerBackButton?: boolean;
 }
 
 interface State {
@@ -20,12 +23,29 @@ class Header extends BaseComponent<Props, State> {
   }
 
   render() {
+    const { onMenuPress, onBackPress, title, headerBackButton } = this.props;
     return (
-      <View>
-        <TouchableOpacity onPress={this.props.onMenuPress}>
-          <Text>{"Press me plz"}</Text>
-        </TouchableOpacity>
-        <Text>{this.props.title}</Text>
+      <View style={styles.header}>
+        <View style={styles.headerPart}>
+          {onMenuPress &&
+            <Button onPress={onMenuPress} style={[styles.headerButton, styles.headerButtonLeft]}>
+              <Image source={Icons.header_menu} style={styles.headerImage} />
+            </Button>
+          }
+          {(onBackPress && headerBackButton) === true &&
+            <Button onPress={onMenuPress}>
+              <Text>Menu</Text>
+            </Button>
+          }
+        </View>
+        {/* <View style={styles.headerPart}>
+          <Text style={styles.headerTitle}>{title}</Text>
+        </View> */}
+        <View style={styles.headerPart}>
+          <Button onPress={onMenuPress} style={[styles.headerButton, styles.headerButtonRight]}>
+            <Image source={Icons.header_logo} style={styles.headerImage} />
+          </Button>
+        </View>
       </View>
     );
   }
