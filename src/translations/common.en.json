@@ -1,6 +1,7 @@
 {
   "hello": "Hello",
   "home": {
-    "header_title": "Home"
+    "header_title": "Home",
+    "scan_a_qrcode": "Scan a qrcode"
   }
 }

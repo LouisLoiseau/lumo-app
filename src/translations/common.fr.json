@@ -1,6 +1,7 @@
 {
   "hello": "Salut",
   "home": {
-    "header_title": "Accueil"
+    "header_title": "Accueil",
+    "scan_a_qrcode": "Scanner un qrcode"
   }
 }
