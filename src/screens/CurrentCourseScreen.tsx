@@ -38,11 +38,20 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 		this.toggleModal();
 	}
 
+	onCourseFinished = () => {
+		this.toggleModal();
+		this.props.navigation.navigate('CourseFinished');
+	}
+
 	render() {
-		const { modalVisible } = this.state; 
+		const { modalVisible } = this.state;
 		return (
 			<Container navigation={this.props.navigation} style={styles.container}>
-				<CourseModal isVisible={modalVisible} onBackButtonPress={this.toggleModal} steps={this.state.steps}/>
+				<CourseModal
+					isVisible={modalVisible}
+					onBackButtonPress={this.toggleModal}
+					steps={this.state.steps} 
+					onCourseFinished={this.onCourseFinished} />
 				<Button onPress={this.startCourse} style={styles.startCourseButton}>
 					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
 				</Button>

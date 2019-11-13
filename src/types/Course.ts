@@ -4,7 +4,6 @@ export type Step = {
   description?: string;
   picture?: StepPicture;
   dialog?: DialogItem[];
-  instruction?: string;
   correct_answer?: number;
 };
 
@@ -18,6 +17,7 @@ export type DialogItem = {
   speaker: string;
   sentence: string;
   answer?: string;
+  completed: boolean;
 };
 
 export type StepPicture = {

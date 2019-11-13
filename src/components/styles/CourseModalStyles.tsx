@@ -28,41 +28,6 @@ export default StyleSheet.create({
     zIndex: 0,
   },
 
-  stepDialog: {
-    position: 'absolute',
-    bottom: 0,
-    borderTopStartRadius: 15,
-    borderTopEndRadius: 15,
-    width: Metrics.screenWidth * 0.9,
-    height: Metrics.realHeight * 0.3,
-    backgroundColor: '#fff',
-    left: (Metrics.screenWidth - Metrics.screenWidth * 0.9) / 2,
-    zIndex: 2,
-  },
-
-  stepDialogSpeaker: {
-    position: 'absolute',
-    top: - ((Metrics.realHeight * 0.3) / 5.5) / 2,
-    left: 15,
-    width: '65%',
-    height: (Metrics.realHeight * 0.3) / 5.5,
-    backgroundColor: '#FF6F61',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    paddingLeft: 15,
-  },
-
-  stepDialogSpeakerText: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: '700',
-  },
-
-  stepDialogSentence: {
-
-  },
-
   bgDark: {
     ...StyleSheet.absoluteFill,
     width: '100%',

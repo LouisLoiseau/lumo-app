@@ -16,7 +16,7 @@
       "picture": {
         "url": ""
       },
-      "question": "Va voir l&#39;homme qui a perdu sa sandale......je ne me souviens plus de son prénom....",
+      "question": "Va voir l'homme qui a perdu sa sandale......je ne me souviens plus de son prénom....",
       "answers": [
         "Anacréon",
         "L'autre",
@@ -52,7 +52,7 @@
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "Avec toute cette musique, tout le monde danse. Compte le nombre d\"enfants qui dansent !",
-      "answer": [
+      "answers": [
         "4",
         "1",
         "7"
@@ -99,7 +99,12 @@
       "picture": {
         "url": ""
       },
-      "instruction": "Faites face aux galeries lafayette et suivez l'avenue qui mène aux escaliers."
+      "dialog": [
+        {
+          "speaker": "",
+          "sentence": "Faites face aux galeries lafayette et suivez l'avenue qui mène aux escaliers."
+        }
+      ]
     },
     {
       "picture": {
@@ -129,13 +134,23 @@
       "picture": {
         "url": ""
       },
-      "instruction": "Continue droit devant moi jusqu\"à la Seine pour éteindre le feu du dragon !"
+      "dialog": [
+        {
+          "speaker": "",
+          "sentence": "Continue droit devant moi jusqu\"à la Seine pour éteindre le feu du dragon !"
+        }
+      ]
     },
     {
       "picture": {
         "url": ""
       },
-      "instruction": "Regarde les villageois s\"entraident pour éteindre le feu avec l\"eau de la Seine"
+      "dialog": [
+        {
+          "speaker": "",
+          "sentence": "Regarde les villageois s\"entraident pour éteindre le feu avec l\"eau de la Seine"
+        }
+      ]
     },
     {
       "picture": {
@@ -159,7 +174,7 @@
         "La fin du mois ?",
         "La paye des moissonneurs de Léon Lhermitte"
       ],
-      "correct_answer": 1
+      "correct_answer": 2
     },
     {
       "picture": {

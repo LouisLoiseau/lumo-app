@@ -53,7 +53,6 @@ class HomeScreen extends BaseComponent<Props, State> {
 						return true; // Important!
 					}}/>
 				}
-				<Text>{this.state.code}</Text>
 				<View style={styles.container}>
 					<CodeInput codeLength={6} onValueChange={this.handleValueChange}/>
 				</View>
