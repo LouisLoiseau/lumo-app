@@ -9,7 +9,7 @@ export default StyleSheet.create({
     margin: 0,
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
-    marginTop: Metrics.statusBarHeight,
+    marginTop: Platform.select({ ios: Metrics.statusBarHeight, android: 0 }),
   },
 
   invisibleNextTouchable: {
@@ -93,5 +93,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 30,
+    zIndex: 99
   },
 });

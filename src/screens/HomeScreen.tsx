@@ -8,6 +8,7 @@ import { NavigationStackProp } from 'react-navigation-stack';
 export interface State {
 	code: string;
 	isScannerVisible: boolean;
+	codeInputVisible: boolean;
 }
 
 export interface Props {
@@ -15,12 +16,13 @@ export interface Props {
 }
 
 class HomeScreen extends BaseComponent<Props, State> {
-	
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			code: '',
 			isScannerVisible: false,
+			codeInputVisible: false,
 		};
 	}
 
@@ -41,21 +43,33 @@ class HomeScreen extends BaseComponent<Props, State> {
 		this.setState({ code: value });
 	}
 
+	showCodeInput = () => {
+		this.setState({ codeInputVisible: true });
+	}
+
 	render() {
+		// changer les doubles conditions (mises car le texte passait au dessus du scanner)
 		return (
-			<Container navigation={this.props.navigation} headerBackButton={false}>
+			<Container navigation={this.props.navigation} headerBackButton={false} style={styles.container}>
 				<Button onPress={this.getPermissions}>
-					<Text>{"Scanner un qrcode"}</Text>
+					<Text style={styles.title}>{this.trs('home.qrCode.scan')}</Text>
 				</Button>
 				{this.state.isScannerVisible === true &&
 					<Scanner onScanEnd={this.handleQrCodeScan} onBackPress={() => {
 						this.setState({ isScannerVisible: false });
 						return true; // Important!
-					}}/>
+					}} />
 				}
-				<View style={styles.container}>
-					<CodeInput codeLength={6} onValueChange={this.handleValueChange}/>
-				</View>
+				{this.state.codeInputVisible === false && this.state.isScannerVisible === false &&
+					<Button onPress={this.showCodeInput}>
+						<Text style={styles.title}>{this.trs('home.codeInput.show')}</Text>
+					</Button>
+				}
+				{this.state.codeInputVisible === true && this.state.isScannerVisible === false &&
+					<View>
+						<CodeInput codeLength={6} onValueChange={this.handleValueChange} />
+					</View>
+				}
 			</Container>
 		);
 	}

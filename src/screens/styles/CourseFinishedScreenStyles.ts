@@ -3,15 +3,9 @@ import { Metrics, Colors } from '@/constants';
 
 export default StyleSheet.create({
   container: {
+    justifyContent: 'center',
+    alignItems: 'center',
     width: Metrics.screenWidth,
     height: Metrics.realHeight,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  title: {
-    color: '#000',
-    fontSize: 28,
-    fontWeight: 'bold',
   },
 });

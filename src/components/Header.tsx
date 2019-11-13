@@ -10,6 +10,7 @@ interface Props {
   onBackPress?: () => void;
   title?: string;
   headerBackButton?: boolean;
+  otherProps?: object;
 }
 
 interface State {
@@ -34,7 +35,7 @@ class Header extends BaseComponent<Props, State> {
           }
           {(onBackPress && headerBackButton) === true &&
             <Button onPress={onBackPress} style={[styles.headerButton, styles.headerButtonLeft]}>
-              <Text>Menu</Text>
+              <Text>Back</Text>
             </Button>
           }
         </View>
