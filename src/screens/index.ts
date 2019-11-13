@@ -1,7 +1,7 @@
 import HomeScreen from './HomeScreen';
-import CoursesListScreen from './CoursesListScreen';
+import CurrentCourseScreen from './CurrentCourseScreen';
 
 export {
   HomeScreen,
-  CoursesListScreen,
+  CurrentCourseScreen,
 }

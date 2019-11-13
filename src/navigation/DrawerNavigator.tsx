@@ -1,5 +1,5 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { HomeScreen, CoursesListScreen } from '@/screens';
+import { HomeScreen, CurrentCourseScreen } from '@/screens';
 import { Drawer } from '@/components';
 import { Metrics } from '@/constants';
 
@@ -12,7 +12,7 @@ export default createDrawerNavigator(
       },
     },
     Courses: {
-      screen: CoursesListScreen,
+      screen: CurrentCourseScreen,
       params: {
         title: 'routes.home.title',
       },

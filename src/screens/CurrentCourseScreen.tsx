@@ -9,7 +9,7 @@ export interface Props {
 	navigation?: NavigationStackProp;
 }
 
-class CoursesListScreen extends BaseComponent<Props, State> {
+class CurrentCourseScreen extends BaseComponent<Props, State> {
 	
 	constructor(props) {
 		super(props);
@@ -25,4 +25,4 @@ class CoursesListScreen extends BaseComponent<Props, State> {
 	}
 }
 
-export default CoursesListScreen;
+export default CurrentCourseScreen;
