@@ -1,10 +1,11 @@
 export type Step = {
   question?: string;
-  answer?: string;
+  answers?: StepAnswer[];
   description?: string;
-  picture: StepPicture;
+  picture?: StepPicture;
   dialog?: DialogItem[];
   instruction?: string;
+  correct_answer?: number;
 };
 
 export type Course = {
@@ -25,3 +26,7 @@ export type StepPicture = {
 };
 
 export type StepPicturePosition = 'left' | 'right';
+
+export type StepAnswer = {
+  [key: string]: string;
+};

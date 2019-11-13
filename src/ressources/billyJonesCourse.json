@@ -5,14 +5,24 @@
         "url": ""
       },
       "question": "Compte les animaux présents à mes côtés et je te donnerais une indication pour continuer.",
-      "answer": "5"
+      "answers": [
+        "1",
+        "3",
+        "5"
+      ],
+      "correct_answer": 2
     },
     {
       "picture": {
         "url": ""
       },
       "question": "Va voir l&#39;homme qui a perdu sa sandale......je ne me souviens plus de son prénom....",
-      "answer": "Anacréon"
+      "answers": [
+        "Anacréon",
+        "L'autre",
+        "L'autre d'après"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
@@ -30,55 +40,90 @@
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "Je suis tombée sous son charme lorsqu\"il a joué de la guitare. Retrouveras-tu les instruments.",
-      "answer": "4"
+      "answers": [
+        "6789",
+        "31",
+        "4"
+      ],
+      "correct_answer": 2
     },
     {
       "picture": {
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "Avec toute cette musique, tout le monde danse. Compte le nombre d\"enfants qui dansent !",
-      "answer": "4"
+      "answer": [
+        "4",
+        "1",
+        "7"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "Un jeune homme à vaincu, les autres ont perdu. Dans quel sport s\"est-il illustré ?",
-      "answer": "Il s\"agit du combat de coq, on voit la statue qui s\"appelle Le vainqueur au combat de coqs de Alexandre Falguière."
+      "answers": [
+        "Oui",
+        "Peut-être",
+        "Il s\"agit du combat de coq, on voit la statue qui s\"appelle Le vainqueur au combat de coqs de Alexandre Falguière."
+      ],
+      "correct_answer": 2
     },
     {
       "picture": {
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "Un enfant a été perdu durant la fête. Retrouve le, il était accompagné de son chien.",
-      "answer": "Le prince impérial et son chien Néro de Jean-Baptiste Carpeaux"
+      "answers": [
+        "Le prince impérial et son chien Néro de Jean-Baptiste Carpeaux",
+        "Gris",
+        "11h36"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
         "url": "@/assets/images/sapho_james_pradier.png"
       },
       "question": "La France impériale protège l\"agriculture et les sciences, elle veille aussi sur un commerce situé entre rue lafayette et rue chaussé d\"antin",
-      "answer": "Les Galeries Lafayette, il y a une maquette du quartier de l\"opéra, on voit les magasins des galeries"
+      "answers": [
+        "Les Galeries Lafayette, il y a une maquette du quartier de l\"opéra, on voit les magasins des galeries",
+        "Intermarché",
+        "UMG"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
         "url": ""
       },
-      "instruction": "Faites face aux galeries lafayette et suivez l&#39;avenue qui mène aux escaliers."
+      "instruction": "Faites face aux galeries lafayette et suivez l'avenue qui mène aux escaliers."
     },
     {
       "picture": {
         "url": ""
       },
       "question": "En haut des escaliers, trouvez la statue couronnée.",
-      "answer": "Charles V d\"Emmanuel Fremiet"
+      "answers": [
+        "Charles V d\"Emmanuel Fremiet",
+        "Napoléon",
+        "Didier Deschamps"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
         "url": ""
       },
       "question": "Mon royaume est en feu ! Trouve Saint Michel, qui pourra tuer ce dragon dévastateur !",
-      "answer": "Saint Michel terrassant le dragon d\"Emmanuel Fremiet"
+      "answers": [
+        "Saint Michel terrassant le dragon d\"Emmanuel Fremiet",
+        "idk",
+        "idk2"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
@@ -97,21 +142,36 @@
         "url": ""
       },
       "question": "Quel est le bâtiment que vous pouvez apercevoir à votre droite ?",
-      "answer": "Les Tuileries"
+      "answers": [
+        "Les Tuileries",
+        "McDo",
+        "Tacos palace"
+      ],
+      "correct_answer": 0
     },
     {
       "picture": {
         "url": ""
       },
       "question": "Longez la Seine jusqu\"aux moissonneurs. C\"est la fin du mois, qu\"attendent-ils avec impatience ?",
-      "answer": "La paye des moissonneurs de Léon Lhermitte"
+      "answers": [
+        "La paye, donne les sous",
+        "La fin du mois ?",
+        "La paye des moissonneurs de Léon Lhermitte"
+      ],
+      "correct_answer": 1
     },
     {
       "picture": {
         "url": ""
       },
       "question": "Un de mes enfants est malade, aide moi à trouver le scientifique qui pourra le guérir",
-      "answer": "Portrait de Louis Pasteur par Albert Edelfelt"
+      "answers": [
+        "Lorenzo",
+        "Portrait de Louis Pasteur par Albert Edelfelt",
+        "Ademo"
+      ],
+      "correct_answer": 1
     },
     {
       "picture": {
@@ -146,7 +206,12 @@
         "url": ""
       },
       "question": "Suivez les regards de l\"Alsace et de la Lorraine pour rentrer chez vous",
-      "answer": "Souvenir, Alsace-Lorraine de Paul Dubois"
+      "answers": [
+        "Sheisse",
+        "Metz",
+        "Souvenir, Alsace-Lorraine de Paul Dubois"
+      ],
+      "correct_answer": 2
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ImageBackground } from 'react-native';
+import { View, Text, Image, ImageBackground, Alert } from 'react-native';
 import BaseComponent from './BaseComponent';
 import Modal from 'react-native-modal';
 import styles from './styles/CourseModalStyles';
@@ -37,15 +37,21 @@ class CourseModal extends BaseComponent<Props, State> {
 		this.setState({ currentStepIndex: this.state.currentStepIndex + 1 });
 	}
 
-	answering = () => {
-		console.warn('Answered');
+	checkAnswer = (index: number) => {
+		const step = this.props.steps[this.state.currentStepIndex];
+		if (!step) return null;
+		if (step.correct_answer == index) {
+			this.stepNext(this.props.steps, this.state.currentStepIndex);
+		} else {
+			Alert.alert('Mauvaise réponse, rééssayez.');
+		}
 	}
 
 	renderCurrentStep = (step: Step) => {
 		let isDialog = step.dialog !== undefined && step.dialog.length !== 0;
 		let isQuestion = step.question !== undefined && step.question !== "";
 		return (
-			<TouchableWithoutFeedback onPress={this.next} style={styles.invisibleNextTouchable}>
+			<TouchableWithoutFeedback disabled={isQuestion === true} onPress={this.next} style={styles.invisibleNextTouchable}>
 				<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
 					<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />
 					{step.picture.url !== "" && <Image source={require('../assets/images/sapho_james_pradier.png')} style={styles.stepImageSpeaker} />}
@@ -67,10 +73,10 @@ class CourseModal extends BaseComponent<Props, State> {
 							</View>
 							<Text style={styles.stepQuestionText}>{step.question}</Text>
 							<View style={styles.stepAnswersList}>
-								{[1, 2, 3].map(item => {
+								{step.answers.map((item, index) => {
 									return (
-										<TouchableOpacity style={styles.stepAnswerItem} onPress={this.answering}>
-											<Text>Réponse {item} : {step.answer}</Text>
+										<TouchableOpacity style={styles.stepAnswerItem} onPress={() => this.checkAnswer(index)}>
+											<Text>Réponse {index +1} : {item}</Text>
 										</TouchableOpacity>
 									);
 								})}
