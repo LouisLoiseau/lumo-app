@@ -14,7 +14,7 @@ export default createDrawerNavigator(
     Courses: {
       screen: CurrentCourseScreen,
       params: {
-        title: 'routes.home.title',
+        title: 'routes.coursesList.title',
       },
     },
   },

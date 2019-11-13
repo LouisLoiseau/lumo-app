@@ -1,0 +1,152 @@
+{
+  "steps": [
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Compte les animaux présents à mes côtés et je te donnerais une indication pour continuer.",
+      "answer": "5"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Va voir l&#39;homme qui a perdu sa sandale......je ne me souviens plus de son prénom....",
+      "answer": "Anacréon"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "dialog": [
+        {
+          "speaker": "Anacréon",
+          "sentence": "J\"ai fait de ma sandale un bijou naturel que j\"ai offert a ma bien aimée."
+        }
+      ]
+    },
+    {
+      "picture": {
+        "url": "@/assets/images/sapho_james_pradier.png"
+      },
+      "question": "Je suis tombée sous son charme lorsqu\"il a joué de la guitare. Retrouveras-tu les instruments.",
+      "answer": "4"
+    },
+    {
+      "picture": {
+        "url": "@/assets/images/sapho_james_pradier.png"
+      },
+      "question": "Avec toute cette musique, tout le monde danse. Compte le nombre d\"enfants qui dansent !",
+      "answer": "4"
+    },
+    {
+      "picture": {
+        "url": "@/assets/images/sapho_james_pradier.png"
+      },
+      "question": "Un jeune homme à vaincu, les autres ont perdu. Dans quel sport s\"est-il illustré ?",
+      "answer": "Il s\"agit du combat de coq, on voit la statue qui s\"appelle Le vainqueur au combat de coqs de Alexandre Falguière."
+    },
+    {
+      "picture": {
+        "url": "@/assets/images/sapho_james_pradier.png"
+      },
+      "question": "Un enfant a été perdu durant la fête. Retrouve le, il était accompagné de son chien.",
+      "answer": "Le prince impérial et son chien Néro de Jean-Baptiste Carpeaux"
+    },
+    {
+      "picture": {
+        "url": "@/assets/images/sapho_james_pradier.png"
+      },
+      "question": "La France impériale protège l\"agriculture et les sciences, elle veille aussi sur un commerce situé entre rue lafayette et rue chaussé d\"antin",
+      "answer": "Les Galeries Lafayette, il y a une maquette du quartier de l\"opéra, on voit les magasins des galeries"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "instruction": "Faites face aux galeries lafayette et suivez l&#39;avenue qui mène aux escaliers."
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "En haut des escaliers, trouvez la statue couronnée.",
+      "answer": "Charles V d\"Emmanuel Fremiet"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Mon royaume est en feu ! Trouve Saint Michel, qui pourra tuer ce dragon dévastateur !",
+      "answer": "Saint Michel terrassant le dragon d\"Emmanuel Fremiet"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "instruction": "Continue droit devant moi jusqu\"à la Seine pour éteindre le feu du dragon !"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "instruction": "Regarde les villageois s\"entraident pour éteindre le feu avec l\"eau de la Seine"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Quel est le bâtiment que vous pouvez apercevoir à votre droite ?",
+      "answer": "Les Tuileries"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Longez la Seine jusqu\"aux moissonneurs. C\"est la fin du mois, qu\"attendent-ils avec impatience ?",
+      "answer": "La paye des moissonneurs de Léon Lhermitte"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Un de mes enfants est malade, aide moi à trouver le scientifique qui pourra le guérir",
+      "answer": "Portrait de Louis Pasteur par Albert Edelfelt"
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "dialog": [
+        {
+          "speaker": "Billy Jones",
+          "sentence": "Louis Pasteur ! J\"ai entendu parler de lui dans les livres d\"histoire dans mon monde. C\"est le seul qui puisse m\"aider."
+        },
+        {
+          "speaker": "Louis Pasteur",
+          "sentence": "Faites vite, je suis sur un projet important !"
+        },
+        {
+          "speaker": "Billy Jones",
+          "sentence": "La maladie qui sévit dans mon monde se caractérise par des hallucinations, l\"insomnie et la perte d\"appétit. Quelle maladie cela pourrait-être ?"
+        },
+        {
+          "speaker": "Louis Pasteur",
+          "sentence": "Je suis sur le point de créer un vaccin qui pourrait sauver les personnes atteintes de cette terrible maladie ! Qu\"elle est-elle ?",
+          "answer": "La rage"
+        },
+        {
+          "speaker": "Billy Jones",
+          "sentence": "Je dois rentrer chez moi avec le vaccin pour sauver ma planète."
+        }
+      ]
+    },
+    {
+      "picture": {
+        "url": ""
+      },
+      "question": "Suivez les regards de l\"Alsace et de la Lorraine pour rentrer chez vous",
+      "answer": "Souvenir, Alsace-Lorraine de Paul Dubois"
+    }
+  ]
+}

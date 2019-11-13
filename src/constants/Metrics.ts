@@ -16,5 +16,7 @@ export default {
   screenWidth: width,
   screenHeight: height,
   isIphoneX: isIphoneX(),
-  statusBarHeight: Constants.statusBarHeight
+  statusBarHeight: Constants.statusBarHeight,
+  realHeight: (height - Constants.statusBarHeight) - height * 0.075,
+  headerHeight: height * 0.075,
 }

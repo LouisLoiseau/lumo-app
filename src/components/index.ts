@@ -5,6 +5,7 @@ import CodeInput from './CodeInput';
 import BaseComponent from './BaseComponent';
 import Drawer from './Drawer';
 import Header from './Header';
+import CourseModal from './CourseModal';
 
 export {
   Button,
@@ -14,4 +15,5 @@ export {
   BaseComponent,
   Drawer,
   Header,
+  CourseModal,
 }

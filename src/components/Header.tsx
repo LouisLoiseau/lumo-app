@@ -33,14 +33,14 @@ class Header extends BaseComponent<Props, State> {
             </Button>
           }
           {(onBackPress && headerBackButton) === true &&
-            <Button onPress={onMenuPress}>
+            <Button onPress={onBackPress} style={[styles.headerButton, styles.headerButtonLeft]}>
               <Text>Menu</Text>
             </Button>
           }
         </View>
-        {/* <View style={styles.headerPart}>
+        <View style={styles.headerPart}>
           <Text style={styles.headerTitle}>{title}</Text>
-        </View> */}
+        </View>
         <View style={styles.headerPart}>
           <Button otherProps={{
             disabled: true

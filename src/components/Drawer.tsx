@@ -30,7 +30,7 @@ class Drawer extends BaseComponent<Props, State> {
                 key={item.key}
                 onPress={() => this.props.navigation.navigate(item.routeName)}
                 style={styles.drawerNavButton}>
-                <Text style={styles.drawerNavButtonText}>{item.routeName}</Text>
+                <Text style={styles.drawerNavButtonText}>{this.trs(item.params.title)}</Text>
               </Button>
             );
           })}

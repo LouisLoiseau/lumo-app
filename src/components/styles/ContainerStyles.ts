@@ -8,4 +8,8 @@ export default StyleSheet.create({
     height: Metrics.screenHeight,
     paddingTop: Platform.select({ android: Metrics.statusBarHeight }),
   },
+
+  main: {
+    
+  }
 });

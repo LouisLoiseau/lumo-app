@@ -3,6 +3,7 @@
     "title": "Home"
   },
   "coursesList": {
-    "title": "Course"
+    "title": "Course",
+    "start_course": "Start course"
   }
 }

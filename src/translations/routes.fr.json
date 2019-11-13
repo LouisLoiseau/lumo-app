@@ -3,6 +3,7 @@
     "title": "Accueil"
   },
   "coursesList": {
-    "title": "Parcours"
+    "title": "Parcours",
+    "start_course": "Commencer le parcours"
   }
 }
