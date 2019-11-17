@@ -11,8 +11,7 @@ import DialogBox from './DialogBox';
 export interface Props {
 	isVisible: boolean;
 	onBackButtonPress: () => void;
-	course?: Course;
-	steps: Step[];
+	course: Course;
 	onCourseFinished: () => void;
 }
 
@@ -37,9 +36,9 @@ class CourseModal extends BaseComponent<Props, State> {
 	}
 
 	stepNext = () => {
-		const { steps } = this.props;
+		const { course } = this.props;
 		const { currentStepIndex } = this.state;
-		if (!steps[currentStepIndex + 1] || currentStepIndex === steps.length - 1) {
+		if (!course.steps[currentStepIndex + 1] || currentStepIndex === course.steps.length - 1) {
 			this.props.onCourseFinished();
 			return null;
 		}
@@ -47,8 +46,8 @@ class CourseModal extends BaseComponent<Props, State> {
 	}
 
 	next = () => {
-		const { steps } = this.props;
-		let currentStep = steps[this.state.currentStepIndex];
+		const { course } = this.props;
+		let currentStep = course.steps[this.state.currentStepIndex];
 		if (!currentStep.dialog) return null;
 		let currentDialog = currentStep.dialog[this.state.currentStepDialogIndex + 1];
 		if (!currentDialog) {
@@ -59,7 +58,7 @@ class CourseModal extends BaseComponent<Props, State> {
 	}
 
 	checkAnswer = (index: number) => {
-		const step = this.props.steps[this.state.currentStepIndex];
+		const step = this.props.course.steps[this.state.currentStepIndex];
 		if (!step) return null;
 		if (step.correct_answer == index) {
 			this.stepNext();
@@ -69,9 +68,9 @@ class CourseModal extends BaseComponent<Props, State> {
 	}
 
 	render() {
-		const { isVisible, onBackButtonPress, course, steps } = this.props;
+		const { isVisible, onBackButtonPress, course } = this.props;
 		const { currentStepIndex, currentStepDialogIndex } = this.state;
-		let currentStep = steps[currentStepIndex] ? steps[currentStepIndex] : null;
+		let currentStep = course.steps[currentStepIndex] ? course.steps[currentStepIndex] : null;
 		if (!currentStep) return null;
 		let isDialog = currentStep.dialog !== undefined && currentStep.dialog.length !== 0;
 		let isQuestion = currentStep.question !== undefined && currentStep.question !== "";
@@ -79,7 +78,7 @@ class CourseModal extends BaseComponent<Props, State> {
 		let TouchableWithoutFeedback = Platform.select({ ios: TouchableWithoutFeedbackIOS, android: TouchableOpacityAndroid });
 		return (
 			<Modal isVisible={isVisible} hasBackdrop={false} onBackButtonPress={onBackButtonPress} style={styles.modalContainer} swipeDirection={'down'}>
-				<Header onBackPress={() => this.stepBack(steps, currentStepIndex)} headerBackButton={true} title={`${currentStepIndex + 1} / ${steps.length}`} />
+				<Header onBackPress={() => this.stepBack(course.steps, currentStepIndex)} headerBackButton={true} title={`${currentStepIndex + 1} / ${course.steps.length}`} />
 				<TouchableWithoutFeedback disabled={isQuestion === true} onPress={this.next} style={styles.invisibleNextTouchable} activeOpacity={1}>
 					<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
 						<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />

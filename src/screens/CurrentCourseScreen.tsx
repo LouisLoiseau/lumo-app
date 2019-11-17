@@ -4,37 +4,39 @@ import { Container, BaseComponent, Button, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
 const BILLY_JONES = require('@/ressources/billyJonesCourse');
-import { Step } from '@/types/Course';
+import { Step, Course } from '@/types/Course';
+import { inject } from 'mobx-react';
 
 export interface State {
 	modalVisible: boolean;
-	steps: Step[];
+	course: Course;
 }
 
 export interface Props {
 	navigation?: NavigationStackProp;
+	store?: any;
 }
 
+@inject('store')
 class CurrentCourseScreen extends BaseComponent<Props, State> {
-	
 	constructor(props) {
 		super(props);
 		this.state = {
 			modalVisible: false,
-			steps: [],
+			course: null,
+
 		};
 	}
 
 	componentDidMount() {
-		let steps: Step[] = BILLY_JONES.steps;
-		this.setState({ steps });
+		console.log(this.props.store.course);
 	}
 
 	toggleModal = () => {
 		this.setState({ modalVisible: !this.state.modalVisible });
 	}
 
-	startCourse = () => {
+	startCourse = () => {
 		this.toggleModal();
 	}
 
@@ -44,15 +46,19 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	}
 
 	render() {
-		const { modalVisible } = this.state;
+		const { modalVisible, course } = this.state;
 		return (
 			<Container navigation={this.props.navigation} style={styles.container}>
-				<CourseModal
-					isVisible={modalVisible}
-					onBackButtonPress={this.toggleModal}
-					steps={this.state.steps} 
-					onCourseFinished={this.onCourseFinished} />
-				<Button onPress={this.startCourse} style={styles.startCourseButton}>
+				{course &&
+					<CourseModal
+						isVisible={modalVisible}
+						onBackButtonPress={this.toggleModal}
+						course={course}
+						onCourseFinished={this.onCourseFinished} />
+				}
+				<Button onPress={this.startCourse} style={styles.startCourseButton} otherProps={{
+					disabled: course !== undefined && course !== null
+				}}>
 					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
 				</Button>
 			</Container>
