@@ -11,6 +11,10 @@ export type Course = {
   numberOfSteps: number;
   steps: Step[];
   name?: string;
+  bgPicture?: string;
+  summary: string;
+  duration: number;
+  difficulty: string;
 };
 
 export type DialogItem = {
