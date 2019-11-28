@@ -1,5 +1,8 @@
 {
   "finished": {
     "thanks": "Thank you for completing the course :)"
+  },
+  "nextButton": {
+    "label": "Continue"
   }
 }

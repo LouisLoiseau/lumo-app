@@ -1,10 +1,10 @@
 export type Step = {
-  question?: string;
-  answers?: StepAnswer[];
+  isQuestion: boolean;
+  isDialog: boolean;
+  question?: StepQuestion;
   description?: string;
-  picture?: StepPicture;
+  pictures?: StepPicture[];
   dialog?: DialogItem[];
-  correct_answer?: number;
 };
 
 export type Course = {
@@ -20,13 +20,18 @@ export type DialogItem = {
   completed: boolean;
 };
 
-export type StepPicture = {
-  url: string;
-  position: StepPicturePosition;
-};
+export type StepPicture = string;
 
 export type StepPicturePosition = 'left' | 'right';
 
 export type StepAnswer = {
   [key: string]: string;
 };
+
+export type StepQuestion = {
+  author: string;
+  question: string;
+  picture: string;
+  answers: StepAnswer[];
+  correct_answer: number;
+}

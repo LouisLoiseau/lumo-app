@@ -8,7 +8,7 @@ export default StyleSheet.create({
     borderTopStartRadius: 15,
     borderTopEndRadius: 15,
     width: Metrics.screenWidth * 0.9,
-    height: Metrics.realHeight * 0.3,
+    height: Metrics.realHeight * 0.4,
     backgroundColor: '#fff',
     left: (Metrics.screenWidth - Metrics.screenWidth * 0.9) / 2,
     zIndex: 2,

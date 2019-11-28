@@ -7,6 +7,7 @@ import { Step, Course } from '@/types/Course';
 import Header from './Header';
 import { TouchableWithoutFeedback as TouchableWithoutFeedbackIOS, TouchableOpacity as TouchableOpacityIOS } from 'react-native-gesture-handler';
 import DialogBox from './DialogBox';
+import NextButton from './NextButton';
 
 export interface Props {
 	isVisible: boolean;
@@ -79,34 +80,33 @@ class CourseModal extends BaseComponent<Props, State> {
 		let TouchableWithoutFeedback = Platform.select({ ios: TouchableWithoutFeedbackIOS, android: TouchableOpacityAndroid });
 		return (
 			<Modal isVisible={isVisible} hasBackdrop={false} onBackButtonPress={onBackButtonPress} style={styles.modalContainer} swipeDirection={'down'}>
+				<NextButton onPress={this.next} mode={this.state.currentStepIndex === 0 ? 'light' : 'dark'} visible={isQuestion === false} />
 				<Header onBackPress={() => this.stepBack(steps, currentStepIndex)} headerBackButton={true} title={`${currentStepIndex + 1} / ${steps.length}`} />
-				<TouchableWithoutFeedback disabled={isQuestion === true} onPress={this.next} style={styles.invisibleNextTouchable} activeOpacity={1}>
-					<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
-						<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />
-						{currentStep.picture.url !== "" && <Image source={require('../assets/images/sapho_james_pradier.png')} style={styles.stepImageSpeaker} />}
-						{isDialog === true && currentStep.dialog[currentStepDialogIndex] &&
-							<DialogBox dialog={currentStep.dialog[currentStepDialogIndex]} />
-						}
-						{isQuestion &&
-							<View style={styles.stepQuestion}>
-								<View style={styles.stepQuestionAvatar}>
-									<Image source={require('../assets/images/avatar.png')} style={styles.imgAvatar} />
-									<Text style={styles.textAvatar}>{"Samothrace"} :</Text>
-								</View>
-								<Text style={styles.stepQuestionText}>{currentStep.question}</Text>
-								<View style={styles.stepAnswersList}>
-									{currentStep.answers.map((item, index) => {
-										return (
-											<TouchableOpacity style={styles.stepAnswerItem} onPress={() => this.checkAnswer(index)}>
-												<Text>Réponse {index + 1} : {item}</Text>
-											</TouchableOpacity>
-										);
-									})}
-								</View>
+				<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
+					<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />
+					{currentStep.picture.url !== "" && <Image source={require('../assets/images/sapho_james_pradier.png')} style={styles.stepImageSpeaker} />}
+					{isDialog === true && currentStep.dialog[currentStepDialogIndex] &&
+						<DialogBox dialog={currentStep.dialog[currentStepDialogIndex]} />
+					}
+					{isQuestion &&
+						<View style={styles.stepQuestion}>
+							<View style={styles.stepQuestionAvatar}>
+								<Image source={require('../assets/images/avatar.png')} style={styles.imgAvatar} />
+								<Text style={styles.textAvatar}>{"Samothrace"} :</Text>
 							</View>
-						}
-					</ImageBackground>
-				</TouchableWithoutFeedback>
+							<Text style={styles.stepQuestionText}>{currentStep.question}</Text>
+							<View style={styles.stepAnswersList}>
+								{currentStep.answers.map((item, index) => {
+									return (
+										<TouchableOpacity style={styles.stepAnswerItem} onPress={() => this.checkAnswer(index)}>
+											<Text>Réponse {index + 1} : {item}</Text>
+										</TouchableOpacity>
+									);
+								})}
+							</View>
+						</View>
+					}
+				</ImageBackground>
 			</Modal>
 		);
 	}
