@@ -5,7 +5,7 @@ import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
 const BILLY_JONES = require('@/ressources/billyJonesCourse');
 import { Step, Course } from '@/types/Course';
-import { inject } from 'mobx-react';
+import { connect } from 'react-redux';
 
 export interface State {
 	modalVisible: boolean;
@@ -17,19 +17,13 @@ export interface Props {
 	store?: any;
 }
 
-@inject('store')
 class CurrentCourseScreen extends BaseComponent<Props, State> {
 	constructor(props) {
 		super(props);
 		this.state = {
 			modalVisible: false,
 			course: null,
-
 		};
-	}
-
-	componentDidMount() {
-		console.log(this.props.store.course);
 	}
 
 	toggleModal = () => {
@@ -66,4 +60,10 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	}
 }
 
-export default CurrentCourseScreen;
+const mapStateToProps = (state) => {
+	return {
+		state
+	}
+};
+
+export default connect(mapStateToProps)(CurrentCourseScreen);
