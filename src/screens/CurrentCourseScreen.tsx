@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Container, BaseComponent, Button, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
-const BILLY_JONES = require('@/ressources/billyJonesCourse');
-import { Step, Course } from '@/types/Course';
+import { Course } from '@/types/Course';
 import { connect } from 'react-redux';
 
 export interface State {
@@ -60,10 +59,8 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		state
-	}
+const mapStateToProps = store => {
+	return { store }
 };
 
 export default connect(mapStateToProps)(CurrentCourseScreen);
