@@ -14,7 +14,7 @@ interface State {}
 
 class RootContainer extends React.Component<Props, State> {
   componentDidMount() {
-    let { store, dispatch } = this.props;
+    let { dispatch } = this.props;
     dispatch({ type: 'SET_COURSE', data: BILLY_JONES });
   }
 

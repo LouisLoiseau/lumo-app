@@ -3,17 +3,18 @@ import { Text } from 'react-native';
 import { Container, BaseComponent, Button, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
-import { Course } from '@/types/Course';
 import { connect } from 'react-redux';
+import { InternalStoreType } from '@/types/Store';
+import { Dispatch } from 'redux';
 
 export interface State {
 	modalVisible: boolean;
-	course: Course;
 }
 
 export interface Props {
 	navigation?: NavigationStackProp;
-	store?: any;
+	store: InternalStoreType;
+	dispatch: Dispatch;
 }
 
 class CurrentCourseScreen extends BaseComponent<Props, State> {
@@ -21,7 +22,6 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 		super(props);
 		this.state = {
 			modalVisible: false,
-			course: null,
 		};
 	}
 
@@ -39,7 +39,8 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	}
 
 	render() {
-		const { modalVisible, course } = this.state;
+		const { modalVisible } = this.state;
+		const { course } = this.props.store;
 		return (
 			<Container navigation={this.props.navigation} style={styles.container}>
 				{course &&
@@ -50,7 +51,7 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 						onCourseFinished={this.onCourseFinished} />
 				}
 				<Button onPress={this.startCourse} style={styles.startCourseButton} otherProps={{
-					disabled: course !== undefined && course !== null
+					disabled: course === undefined && course === null
 				}}>
 					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
 				</Button>
