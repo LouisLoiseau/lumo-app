@@ -1,40 +1,35 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Container, BaseComponent, Button, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
-const BILLY_JONES = require('@/ressources/billyJonesCourse');
-import { Step } from '@/types/Course';
+import { connect } from 'react-redux';
+import { InternalStoreType } from '@/types/Store';
+import { Dispatch } from 'redux';
 
 export interface State {
 	modalVisible: boolean;
-	steps: Step[];
 }
 
 export interface Props {
 	navigation?: NavigationStackProp;
+	store: InternalStoreType;
+	dispatch: Dispatch;
 }
 
 class CurrentCourseScreen extends BaseComponent<Props, State> {
-	
 	constructor(props) {
 		super(props);
 		this.state = {
 			modalVisible: false,
-			steps: [],
 		};
-	}
-
-	componentDidMount() {
-		let steps: Step[] = BILLY_JONES.steps;
-		this.setState({ steps });
 	}
 
 	toggleModal = () => {
 		this.setState({ modalVisible: !this.state.modalVisible });
 	}
 
-	startCourse = () => {
+	startCourse = () => {
 		this.toggleModal();
 	}
 
@@ -45,14 +40,19 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 
 	render() {
 		const { modalVisible } = this.state;
+		const { course } = this.props.store;
 		return (
 			<Container navigation={this.props.navigation} style={styles.container}>
-				<CourseModal
-					isVisible={modalVisible}
-					onBackButtonPress={this.toggleModal}
-					steps={this.state.steps} 
-					onCourseFinished={this.onCourseFinished} />
-				<Button onPress={this.startCourse} style={styles.startCourseButton}>
+				{course &&
+					<CourseModal
+						isVisible={modalVisible}
+						onBackButtonPress={this.toggleModal}
+						course={course}
+						onCourseFinished={this.onCourseFinished} />
+				}
+				<Button onPress={this.startCourse} style={styles.startCourseButton} otherProps={{
+					disabled: course === undefined && course === null
+				}}>
 					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
 				</Button>
 			</Container>
@@ -60,4 +60,8 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	}
 }
 
-export default CurrentCourseScreen;
+const mapStateToProps = store => {
+	return { store }
+};
+
+export default connect(mapStateToProps)(CurrentCourseScreen);

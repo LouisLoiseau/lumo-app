@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { Container, Button, Scanner, CodeInput, BaseComponent } from '@/components';
 import styles from './styles/HomeScreenStyles';
 import * as Permissions from 'expo-permissions';
 import { NavigationStackProp } from 'react-navigation-stack';
+import { api } from '@/lib';
 
 export interface State {
 	code: string;
@@ -40,7 +41,15 @@ class HomeScreen extends BaseComponent<Props, State> {
 	}
 
 	handleValueChange = (value: string) => {
-		this.setState({ code: value });
+		this.setState({ code: value }, () => {
+			if (this.state.code.length === 6) {
+				api.get(`/course/${this.state.code}/get_course_by_code`).then(response => {
+					Alert.alert('Success')
+				}).catch(({ response }) => {
+					Alert.alert(response.data.message);
+				});
+			}
+		});
 	}
 
 	showCodeInput = () => {
