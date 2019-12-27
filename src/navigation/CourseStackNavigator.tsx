@@ -1,5 +1,5 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { SelectCourseScreen, CourseSummaryScreen } from '@/screens';
+import { SelectCourseScreen, CourseSummaryScreen, CurrentCourseScreen } from '@/screens';
 
 export default createStackNavigator(
   {
@@ -14,6 +14,9 @@ export default createStackNavigator(
       params: {
         title: 'routes.courseSummary.title',
       },
+    },
+    CurrentCourse: {
+      screen: CurrentCourseScreen,
     },
   },
   {

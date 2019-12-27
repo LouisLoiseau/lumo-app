@@ -78,7 +78,13 @@ class CourseModal extends BaseComponent<Props, State> {
 		let TouchableWithoutFeedback = Platform.select({ ios: TouchableWithoutFeedbackIOS, android: TouchableOpacityAndroid });
 		return (
 			<Modal isVisible={isVisible} hasBackdrop={false} onBackButtonPress={onBackButtonPress} style={styles.modalContainer} swipeDirection={'down'}>
-				<Header onBackPress={() => this.stepBack(course.steps, currentStepIndex)} headerBackButton={true} title={`${currentStepIndex + 1} / ${course.steps.length}`} />
+				<Header onBackPress={() => {
+					if (currentStepIndex === 0) {
+						this.props.onBackButtonPress();
+					} else {
+						this.stepBack(course.steps, currentStepIndex);
+					}
+				}} headerBackButton={true} title={`${currentStepIndex + 1} / ${course.steps.length}`} />
 				<TouchableWithoutFeedback disabled={isQuestion === true} onPress={this.next} style={styles.invisibleNextTouchable} activeOpacity={1}>
 					<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
 						<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />
@@ -96,7 +102,7 @@ class CourseModal extends BaseComponent<Props, State> {
 								<View style={styles.stepAnswersList}>
 									{currentStep.answers.map((item, index) => {
 										return (
-											<TouchableOpacity style={styles.stepAnswerItem} onPress={() => this.checkAnswer(index)}>
+											<TouchableOpacity key={index} style={styles.stepAnswerItem} onPress={() => this.checkAnswer(index)}>
 												<Text>Réponse {index + 1} : {item}</Text>
 											</TouchableOpacity>
 										);

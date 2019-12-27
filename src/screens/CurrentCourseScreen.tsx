@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container, BaseComponent, Button, CourseModal } from '@/components';
+import { View } from 'react-native';
+import { BaseComponent, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
 import { connect } from 'react-redux';
@@ -21,20 +21,19 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modalVisible: false,
+			modalVisible: true,
 		};
 	}
 
-	toggleModal = () => {
-		this.setState({ modalVisible: !this.state.modalVisible });
-	}
-
-	startCourse = () => {
-		this.toggleModal();
+	componentDidMount() {
+		this.props.navigation.addListener('didFocus', () => {
+			if (this.props.store.course && this.state.modalVisible !== true) {
+				this.setState({ modalVisible: true });
+			}
+		});
 	}
 
 	onCourseFinished = () => {
-		this.toggleModal();
 		this.props.navigation.navigate('CourseFinished');
 	}
 
@@ -42,20 +41,15 @@ class CurrentCourseScreen extends BaseComponent<Props, State> {
 		const { modalVisible } = this.state;
 		const { course } = this.props.store;
 		return (
-			<Container navigation={this.props.navigation} style={styles.container}>
+			<View>
 				{course &&
 					<CourseModal
 						isVisible={modalVisible}
-						onBackButtonPress={this.toggleModal}
+						onBackButtonPress={() => this.setState({ modalVisible: false }, this.props.navigation.goBack)}
 						course={course}
 						onCourseFinished={this.onCourseFinished} />
 				}
-				<Button onPress={this.startCourse} style={styles.startCourseButton} otherProps={{
-					disabled: course === undefined && course === null
-				}}>
-					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
-				</Button>
-			</Container>
+			</View>
 		);
 	}
 }
