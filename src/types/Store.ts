@@ -1,5 +1,7 @@
-import { Course } from "./Course";
+import { Course } from './Course';
+import { StyleTheme } from './StyleTheme';
 
 export type InternalStoreType = {
-  course: Course;
+  course?: Course;
+  theme?: StyleTheme;
 }
