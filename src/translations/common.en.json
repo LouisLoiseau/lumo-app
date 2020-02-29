@@ -1,0 +1,13 @@
+{
+  "hello": "Hello",
+  "home": {
+    "header_title": "Home"
+  },
+  "selectCourse": {
+    "welcomeMessage": "Welcome to the Orsay Museum",
+    "listTitle": "Courses of the museum"
+  },
+  "courseSummary": {
+    "summary": "Summary"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "finished": {
+    "thanks": "Merci pour avoir effectué le parcours :)"
+  },
+  "utils": {
+    "units": {
+      "min": "min",
+      "hour": "heure"
+    },
+    "difficulties": {
+      "low": "Basse",
+      "medium": "Moyenne",
+      "high": "Haute"
+    }
+  }
+}

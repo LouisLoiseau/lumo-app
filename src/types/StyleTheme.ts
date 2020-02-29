@@ -1,0 +1,1 @@
+export type StyleTheme = 'default' | 'light' | 'dark' | 'colorblind';

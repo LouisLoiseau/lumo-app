@@ -1,0 +1,8 @@
+{
+  "louis": {
+    "apiUrl": "http://louis.lumo-culture.fr/api"
+  },
+  "prod": {
+    "apiUrl": "http://api.lumo-culture.fr"
+  }
+}

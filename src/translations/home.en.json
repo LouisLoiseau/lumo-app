@@ -1,0 +1,8 @@
+{
+  "qrCode": {
+    "scan": "Scan a qr code"
+  },
+  "codeInput": {
+    "show": "Enter a code"
+  }
+}
