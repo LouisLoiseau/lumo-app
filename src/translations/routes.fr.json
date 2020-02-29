@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "Accueil"
+  },
+  "coursesList": {
+    "title": "Parcours",
+    "start_course": "Commencer le parcours"
+  },
+  "courseSummary": {
+    "title": "Résumé",
+    "startButtonLabel": "Commencer l'aventure",
+    "durationLabel": "Durée",
+    "difficultyLabel": "Difficulté"
+  }
+}

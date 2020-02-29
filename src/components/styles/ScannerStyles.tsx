@@ -6,7 +6,7 @@ export const TARGET_SIZE = Metrics.screenWidth * 0.8;
 export default StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFill,
-    top: Metrics.statusBarHeight,
+    top: 0,
     width: Metrics.screenWidth,
     height: Metrics.screenHeight - Metrics.statusBarHeight,
     backgroundColor: '#000',

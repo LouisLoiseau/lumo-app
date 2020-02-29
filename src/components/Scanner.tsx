@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { BackHandler, View, BackHandlerStatic } from 'react-native';
+import { BackHandler, View, BackHandlerStatic, Text } from 'react-native';
 import styles from './styles/ScannerStyles';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import Button from './Button';
@@ -38,7 +38,9 @@ class Scanner extends React.Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Button text={"Back"} onPress={this.props.onBackPress} style={styles.backButton} />
+        <Button onPress={this.props.onBackPress} style={styles.backButton}>
+          <Text>{"Retour"}</Text>
+        </Button>
         <View style={styles.targetContainer}>
           {this.renderCorners()}
         </View>

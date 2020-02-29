@@ -1,0 +1,16 @@
+{
+  "finished": {
+    "thanks": "Thank you for completing the course :)"
+  },
+  "utils": {
+    "units": {
+      "min": "min",
+      "hour": "hour"
+    },
+    "difficulties": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    }
+  }
+}

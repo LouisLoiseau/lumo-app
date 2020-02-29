@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, TouchableOpacity, ViewStyle } from 'react-native';
+import { Text, TouchableOpacity, ViewStyle, TouchableOpacityProps } from 'react-native';
+import styles from './styles/ButtonStyles';
 
 export interface Props {
-	text: string;
 	onPress: () => void;
 	style?: ViewStyle;
+	otherProps?: TouchableOpacityProps;
 }
 
 interface State {
-	text: string;
 }
 
 class Button extends React.Component<Props, State>  {
@@ -17,12 +17,10 @@ class Button extends React.Component<Props, State>  {
 	}
 
 	render() {
-		const { onPress, style, text } = this.props;
+		const { onPress, style, otherProps } = this.props;
 		return (
-			<TouchableOpacity style={[style && style]} onPress={onPress} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-				<Text>
-					{text}
-				</Text>
+			<TouchableOpacity style={[styles.buttonContainer, style && style]} onPress={onPress} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} {...otherProps}>
+				{this.props.children && this.props.children}
 			</TouchableOpacity>
 		)
 	}

@@ -6,6 +6,10 @@ export default StyleSheet.create({
     flex: 1,
     width: Metrics.screenWidth,
     height: Metrics.screenHeight,
-    paddingTop: Platform.select({ android: StatusBar.currentHeight }),
+    paddingTop: Platform.select({ android: Metrics.statusBarHeight }),
+  },
+
+  main: {
+    
   }
 });
