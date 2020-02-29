@@ -1,7 +1,8 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { HomeScreen, CurrentCourseScreen } from '@/screens';
+import { HomeScreen, CurrentCourseScreen, SelectCourseScreen } from '@/screens';
 import { Drawer } from '@/components';
 import { Metrics } from '@/constants';
+import CourseStackNavigator from './CourseStackNavigator';
 
 export default createDrawerNavigator(
   {
@@ -12,7 +13,7 @@ export default createDrawerNavigator(
       },
     },
     Courses: {
-      screen: CurrentCourseScreen,
+      screen: CourseStackNavigator,
       params: {
         title: 'routes.coursesList.title',
       },

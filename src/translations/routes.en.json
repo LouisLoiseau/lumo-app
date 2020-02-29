@@ -5,5 +5,11 @@
   "coursesList": {
     "title": "Course",
     "start_course": "Start course"
+  },
+  "courseSummary": {
+    "title": "Summary",
+    "startButtonLabel": "Start course",
+    "durationLabel": "Duration",
+    "difficultyLabel": "Difficulty"
   }
 }

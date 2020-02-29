@@ -2,5 +2,12 @@
   "hello": "Salut",
   "home": {
     "header_title": "Accueil"
+  },
+  "selectCourse": {
+    "welcomeMessage": "Bienvenue au Musée d'Orsay",
+    "listTitle": "Les parcours de ce musée"
+  },
+  "courseSummary": {
+    "summary": "Résumé"
   }
 }

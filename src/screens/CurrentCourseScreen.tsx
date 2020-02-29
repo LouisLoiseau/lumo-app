@@ -1,63 +1,61 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Container, BaseComponent, Button, CourseModal } from '@/components';
+import { View } from 'react-native';
+import { BaseComponent, CourseModal } from '@/components';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
-const BILLY_JONES = require('@/ressources/billyJonesCourse');
-import { Step } from '@/types/Course';
+import { connect } from 'react-redux';
+import { InternalStoreType } from '@/types/Store';
+import { Dispatch } from 'redux';
 
 export interface State {
 	modalVisible: boolean;
-	steps: Step[];
 }
 
 export interface Props {
 	navigation?: NavigationStackProp;
+	store: InternalStoreType;
+	dispatch: Dispatch;
 }
 
 class CurrentCourseScreen extends BaseComponent<Props, State> {
-	
 	constructor(props) {
 		super(props);
 		this.state = {
-			modalVisible: false,
-			steps: [],
+			modalVisible: true,
 		};
 	}
 
 	componentDidMount() {
-		let steps: Step[] = BILLY_JONES.steps;
-		this.setState({ steps });
-	}
-
-	toggleModal = () => {
-		this.setState({ modalVisible: !this.state.modalVisible });
-	}
-
-	startCourse = () => {
-		this.toggleModal();
+		this.props.navigation.addListener('didFocus', () => {
+			if (this.props.store.course && this.state.modalVisible !== true) {
+				this.setState({ modalVisible: true });
+			}
+		});
 	}
 
 	onCourseFinished = () => {
-		this.toggleModal();
 		this.props.navigation.navigate('CourseFinished');
 	}
 
 	render() {
 		const { modalVisible } = this.state;
+		const { course } = this.props.store;
 		return (
-			<Container navigation={this.props.navigation} style={styles.container}>
-				<CourseModal
-					isVisible={modalVisible}
-					onBackButtonPress={this.toggleModal}
-					steps={this.state.steps} 
-					onCourseFinished={this.onCourseFinished} />
-				<Button onPress={this.startCourse} style={styles.startCourseButton}>
-					<Text style={styles.startCourseButtonText}>{this.trs('routes.coursesList.start_course')}</Text>
-				</Button>
-			</Container>
+			<View>
+				{course &&
+					<CourseModal
+						isVisible={modalVisible}
+						onBackButtonPress={() => this.setState({ modalVisible: false }, this.props.navigation.goBack)}
+						course={course}
+						onCourseFinished={this.onCourseFinished} />
+				}
+			</View>
 		);
 	}
 }
 
-export default CurrentCourseScreen;
+const mapStateToProps = store => {
+	return { store }
+};
+
+export default connect(mapStateToProps)(CurrentCourseScreen);
