@@ -1,5 +1,4 @@
-import { Dimensions } from 'react-native';
-import Constants from 'expo-constants';
+import { Dimensions, StatusBar } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,7 +15,7 @@ export default {
   screenWidth: width,
   screenHeight: height,
   isIphoneX: isIphoneX(),
-  statusBarHeight: Constants.statusBarHeight,
-  realHeight: (height - Constants.statusBarHeight) - height * 0.075,
+  statusBarHeight: StatusBar.currentHeight,
+  realHeight: (height - StatusBar.currentHeight) - height * 0.075,
   headerHeight: height * 0.075,
 }

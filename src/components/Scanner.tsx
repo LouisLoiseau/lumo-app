@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { BackHandler, View, BackHandlerStatic, Text } from 'react-native';
 import styles from './styles/ScannerStyles';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import { RNCamera } from 'react-native-camera';
 import Button from './Button';
 
 interface Props {
@@ -12,8 +12,8 @@ interface Props {
 interface State { }
 
 class Scanner extends React.Component<Props, State> {
-  backHandler: BackHandlerStatic;
-  constructor(props) {
+  backHandler: BackHandlerStatic | undefined;
+  constructor(props: Readonly<Props>) {
     super(props);
     this.state = {};
   }
@@ -44,9 +44,8 @@ class Scanner extends React.Component<Props, State> {
         <View style={styles.targetContainer}>
           {this.renderCorners()}
         </View>
-        <BarCodeScanner
-          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.QrCode]}
-          onBarCodeScanned={this.props.onScanEnd}
+        <RNCamera
+          onBarCodeRead={this.props.onScanEnd}
           style={styles.scanner}
         />
       </View>
