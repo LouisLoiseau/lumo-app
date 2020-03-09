@@ -1,30 +1,43 @@
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import { HomeScreen, CurrentCourseScreen, SelectCourseScreen } from '@/screens';
-import { Drawer } from '@/components';
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HomeScreen } from '@/screens';
+import { DrawerContent } from '@/components';
 import { Metrics } from '@/constants';
 import CourseStackNavigator from './CourseStackNavigator';
 
-export default createDrawerNavigator(
-  {
-    Home: {
-      screen: HomeScreen,
-      params: {
-        title: 'routes.home.title',
-      },
-    },
-    Courses: {
-      screen: CourseStackNavigator,
-      params: {
-        title: 'routes.coursesList.title',
-      },
-    },
+export type DrawerNavigatorParams = {
+  Home: {
+    title: 'routes.home.title',
   },
-  {
-    initialRouteName: 'Home',
-    contentComponent: Drawer,
-    drawerWidth: Metrics.screenWidth,
-    drawerPosition: 'left',
-    // drawerBackgroundColor: 'transparent',
-    // overlayColor: 'transparent',
-  }
-);
+  Courses: {
+    title: 'routes.coursesList.title',
+  },
+};
+
+const Drawer = createDrawerNavigator<DrawerNavigatorParams>();
+export default function DrawerNavigator() {
+  return (
+    <Drawer.Navigator
+      initialRouteName='Home'
+      drawerStyle={{
+        width: Metrics.screenWidth,
+      }}
+      drawerPosition='left'
+      drawerContent={DrawerContent}>
+      <Drawer.Screen
+        name='Home'
+        component={HomeScreen}
+        initialParams={{
+          title: 'routes.home.title',
+        }}
+      />
+      <Drawer.Screen
+        name='Courses'
+        component={CourseStackNavigator}
+        initialParams={{
+          title: 'routes.coursesList.title',
+        }}
+      />
+    </Drawer.Navigator>
+  );
+}

@@ -1,18 +1,19 @@
 import React from 'react';
 import { View } from 'react-native';
 import { BaseComponent, CourseModal } from '@/components';
-import { NavigationStackProp } from 'react-navigation-stack';
 import styles from './styles/CurrentCourseScreenStyles';
 import { connect } from 'react-redux';
 import { InternalStoreType } from '@/types/Store';
 import { Dispatch } from 'redux';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { CourseStackNavigatorParams } from '@/navigation/CourseStackNavigator';
 
 export interface State {
 	modalVisible: boolean;
 }
 
 export interface Props {
-	navigation?: NavigationStackProp;
+	navigation?: StackNavigationProp<CourseStackNavigatorParams, 'CurrentCourse'>;
 	store: InternalStoreType;
 	dispatch: Dispatch;
 }

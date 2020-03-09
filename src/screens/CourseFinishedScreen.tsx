@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { NavigationStackProp } from 'react-navigation-stack';
 import { BaseComponent, Container } from '@/components';
 import styles from './styles/CourseFinishedScreenStyles';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackNavigatorParams } from '@/navigation/StackNavigator';
 
 export interface Props {
-	navigation?: NavigationStackProp;
+	navigation?: StackNavigationProp<RootStackNavigatorParams, 'CourseFinished'>;
 }
 
 export interface State {}

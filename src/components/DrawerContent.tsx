@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import BaseComponent from './BaseComponent';
-import { NavigationDrawerProp } from 'react-navigation-drawer';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from '@react-navigation/native';
 import { DrawerItemType } from '@/types/DrawerItemType';
 import styles from './styles/DrawerStyles';
 import Button from './Button';
 import Header from './Header';
+import { NavigationProp } from '@react-navigation/native';
 
 interface Props {
-  navigation?: NavigationDrawerProp;
+  navigation?: NavigationProp;
   items?: DrawerItemType[];
 }
 
@@ -17,12 +17,12 @@ interface State {
 
 }
 
-class Drawer extends BaseComponent<Props, State> {
+class DrawerContent extends BaseComponent<Props, State> {
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Header onMenuPress={this.props.navigation.toggleDrawer} />
-        <Text style={styles.drawerTitle}>{"Orsay"}</Text>
+        <Text style={styles.drawerTitle}>{'Orsay'}</Text>
         <View style={styles.drawerNavContainer}>
           {this.props.items.map(item => {
             return (
@@ -41,4 +41,4 @@ class Drawer extends BaseComponent<Props, State> {
   }
 }
 
-export default Drawer;
+export default DrawerContent;

@@ -73,7 +73,7 @@ class CourseModal extends BaseComponent<Props, State> {
 		let currentStep = course.steps[currentStepIndex] ? course.steps[currentStepIndex] : null;
 		if (!currentStep) return null;
 		let isDialog = currentStep.dialog !== undefined && currentStep.dialog.length !== 0;
-		let isQuestion = currentStep.question !== undefined && currentStep.question !== "";
+		let isQuestion = currentStep.question !== undefined && currentStep.question !== '';
 		let TouchableOpacity = Platform.select({ ios: TouchableOpacityIOS, android: TouchableOpacityAndroid });
 		let TouchableWithoutFeedback = Platform.select({ ios: TouchableWithoutFeedbackIOS, android: TouchableOpacityAndroid });
 		return (
@@ -86,9 +86,9 @@ class CourseModal extends BaseComponent<Props, State> {
 					}
 				}} headerBackButton={true} title={`${currentStepIndex + 1} / ${course.steps.length}`} />
 				<TouchableWithoutFeedback disabled={isQuestion === true} onPress={this.next} style={styles.invisibleNextTouchable} activeOpacity={1}>
-					<ImageBackground source={require("../assets/images/musee_orsay_hall.png")} style={styles.stepImageBg}>
+					<ImageBackground source={require('../assets/images/musee_orsay_hall.png')} style={styles.stepImageBg}>
 						<View style={[styles.bgDark, isQuestion === true && styles.bgDarker]} />
-						{currentStep.picture.url !== "" && <Image source={require('../assets/images/sapho_james_pradier.png')} style={styles.stepImageSpeaker} />}
+						{currentStep.picture.url !== '' && <Image source={require('../assets/images/sapho_james_pradier.png')} style={styles.stepImageSpeaker} />}
 						{isDialog === true && currentStep.dialog[currentStepDialogIndex] &&
 							<DialogBox dialog={currentStep.dialog[currentStepDialogIndex]} />
 						}
@@ -96,7 +96,7 @@ class CourseModal extends BaseComponent<Props, State> {
 							<View style={styles.stepQuestion}>
 								<View style={styles.stepQuestionAvatar}>
 									<Image source={require('../assets/images/avatar.png')} style={styles.imgAvatar} />
-									<Text style={styles.textAvatar}>{"Samothrace"} :</Text>
+									<Text style={styles.textAvatar}>{'Samothrace'} :</Text>
 								</View>
 								<Text style={styles.stepQuestionText}>{currentStep.question}</Text>
 								<View style={styles.stepAnswersList}>

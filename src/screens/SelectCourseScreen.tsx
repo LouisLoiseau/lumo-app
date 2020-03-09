@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, FlatList, Image, ScrollView } from 'react-native';
 import { BaseComponent, Container, CourseListItem } from '@/components';
-import { NavigationStackProp } from 'react-navigation-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Course } from '@/types/Course';
 import styles from './styles/SelectCourseScreenStyles';
+import { CourseStackNavigatorParams } from '@/navigation/CourseStackNavigator';
 
 interface Props {
-  navigation?: NavigationStackProp;
+  navigation?: StackNavigationProp<CourseStackNavigatorParams, 'SelectCourse'>;
 }
 
 interface State {
@@ -19,76 +20,76 @@ class SelectCourseScreen extends BaseComponent<Props, State> {
     this.state = {
       coursesList: [
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy",
+          name: 'Billy',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         },
         {
-          name: "Billy Jones, le retour",
+          name: 'Billy Jones, le retour',
           bgPicture: '@/assets/images/musee_orsay_hall.png',
           numberOfSteps: 8,
           steps: [],
           duration: 30,
-          difficulty: "low",
-          summary: "Nice job",
+          difficulty: 'low',
+          summary: 'Nice job',
         }
       ]
     };

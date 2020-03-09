@@ -6,8 +6,8 @@ export default ThemedStyleSheet.create({
     container: {
       width: Metrics.screenWidth,
       height: Metrics.realHeight,
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     title: {

@@ -3,7 +3,7 @@ import Container from './Container';
 import Scanner from './Scanner';
 import CodeInput from './CodeInput';
 import BaseComponent from './BaseComponent';
-import Drawer from './Drawer';
+import DrawerContent from './DrawerContent';
 import Header from './Header';
 import CourseModal from './CourseModal';
 import CourseListItem from './CourseListItem';
@@ -15,7 +15,7 @@ export {
   Scanner,
   CodeInput,
   BaseComponent,
-  Drawer,
+  DrawerContent,
   Header,
   CourseModal,
   CourseListItem,

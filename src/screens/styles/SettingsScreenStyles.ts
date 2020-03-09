@@ -1,4 +1,4 @@
-import { ThemedStyleSheet } from "@/components";
+import { ThemedStyleSheet } from '@/components';
 import { Colors } from '@/constants';
 
 export default ThemedStyleSheet.create({

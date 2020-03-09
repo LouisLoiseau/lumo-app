@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Alert, PermissionsAndroid } from 'react-native';
 import { Container, Button, Scanner, CodeInput, BaseComponent } from '@/components';
 import styles from './styles/HomeScreenStyles';
-import * as Permissions from 'expo-permissions';
-import { NavigationStackProp } from 'react-navigation-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { api } from '@/lib';
 import { connect } from 'react-redux';
 import { InternalStoreType } from '@/types/Store';
 import { Dispatch } from 'redux';
+import { RootStackNavigatorParams } from '@/navigation/StackNavigator';
 
 export interface State {
 	code: string;
@@ -16,14 +16,14 @@ export interface State {
 }
 
 export interface Props {
-	navigation?: NavigationStackProp;
+	navigation?: StackNavigationProp<RootStackNavigatorParams, 'Home'>;
 	store: InternalStoreType;
 	dispatch: Dispatch;
 }
 
 class HomeScreen extends BaseComponent<Props, State> {
 
-	constructor(props) {
+	constructor(props: Readonly<Props>) {
 		super(props);
 		this.state = {
 			code: '',
@@ -33,8 +33,8 @@ class HomeScreen extends BaseComponent<Props, State> {
 	}
 
 	getPermissions = () => {
-		Permissions.askAsync(Permissions.CAMERA).then(response => {
-			if (response.status === "granted") {
+		PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS['android.permission.CAMERA']).then(response => {
+			if (response.status === 'granted') {
 				this.setState({ isScannerVisible: true });
 			}
 		});

@@ -2,15 +2,17 @@ import React from 'react';
 import { View, Text, Slider } from 'react-native';
 import { Dispatch } from 'redux';
 import { Container, BaseComponent } from '@/components';
-import { NavigationStackProp } from 'react-navigation-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { InternalStoreType } from '@/types/Store';
 import styles from './styles/SettingsScreenStyles';
 import { connect } from 'react-redux';
 import { THEMES, Colors } from '@/constants';
 import { Switch } from 'react-native-switch';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackNavigatorParams } from '@/navigation/StackNavigator';
 
 interface Props {
-  navigation?: NavigationStackProp;
+  navigation?: StackNavigationProp<RootStackNavigatorParams, 'Settings'>;
   dispatch?: Dispatch;
   store: InternalStoreType;
 }

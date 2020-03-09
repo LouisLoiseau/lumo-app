@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { NavigationStackProp } from 'react-navigation-stack';
 import { BaseComponent, Container } from '@/components';
 import styles from './styles/CourseSummaryScreenStyles';
 import { uti } from '@/lib';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { CourseStackNavigatorParams } from '@/navigation/CourseStackNavigator';
 
 export interface Props {
-  navigation?: NavigationStackProp;
+  navigation?: StackNavigationProp<CourseStackNavigatorParams, 'CourseSummary'>;
 }
 
 export interface State { }

@@ -28,10 +28,10 @@ class Scanner extends React.Component<Props, State> {
 
   renderCorners = (): ReactElement[] => {
     return [
-      <View key={"topLeft"} style={[styles.targetCorner, styles.cornerTopLeft]}></View>,
-      <View key={"topRight"} style={[styles.targetCorner, styles.cornerTopRight]}></View>,
-      <View key={"bottomLeft"} style={[styles.targetCorner, styles.cornerBottomLeft]}></View>,
-      <View key={"bottomRight"} style={[styles.targetCorner, styles.cornerBottomRight]}></View>,
+      <View key={'topLeft'} style={[styles.targetCorner, styles.cornerTopLeft]}></View>,
+      <View key={'topRight'} style={[styles.targetCorner, styles.cornerTopRight]}></View>,
+      <View key={'bottomLeft'} style={[styles.targetCorner, styles.cornerBottomLeft]}></View>,
+      <View key={'bottomRight'} style={[styles.targetCorner, styles.cornerBottomRight]}></View>,
     ];
   }
 
@@ -39,7 +39,7 @@ class Scanner extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <Button onPress={this.props.onBackPress} style={styles.backButton}>
-          <Text>{"Retour"}</Text>
+          <Text>{'Retour'}</Text>
         </Button>
         <View style={styles.targetContainer}>
           {this.renderCorners()}

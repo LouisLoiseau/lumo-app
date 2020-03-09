@@ -1,5 +1,5 @@
-import * as Translations from "@/translations";
-import * as Localization from "expo-localization";
+import * as Translations from '@/translations';
+import * as Localization from 'react-native-localize';
 import { TranslatorParam } from '@/types/TranslatorTypes';
 
 class I18n {

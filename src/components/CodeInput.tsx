@@ -1,5 +1,12 @@
 import React from 'react';
-import { TextInput, View, Text, TextInputProperties, ViewStyle, TouchableWithoutFeedback } from 'react-native';
+import {
+  TextInput,
+  View,
+  Text,
+  TextInputProperties,
+  ViewStyle,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import styles from './styles/CodeInputStyles';
 
 export interface Props {
@@ -42,7 +49,7 @@ class CodeInput extends React.Component<Props, State> {
   };
 
   handleKeyPress = e => {
-    if (e.nativeEvent.key === "Backspace") {
+    if (e.nativeEvent.key === 'Backspace') {
       this.setState(state => {
         this.props.onValueChange(state.value.slice(0, state.value.length - 1));
         return {
@@ -65,14 +72,14 @@ class CodeInput extends React.Component<Props, State> {
   render() {
     const { value, focused } = this.state;
     const { textInputProps, codeLength, style } = this.props;
-		const values = value.split("");
+		const values = value.split('');
 		const selectedIndex = values.length < this.CODE.length ? values.length : this.CODE.length - 1;
 		const hideInput = !(values.length < this.CODE.length);
     return (
       <TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={styles.wrap}>
           <TextInput
-            value=""
+            value=''
             ref={this.input}
             onChangeText={this.handleChange}
             onKeyPress={this.handleKeyPress}
@@ -94,7 +101,7 @@ class CodeInput extends React.Component<Props, State> {
 
             return (
               <View style={[styles.display, removeBorder]} key={index}>
-                <Text style={styles.text}>{values[index] || ""}</Text>
+                <Text style={styles.text}>{values[index] || ''}</Text>
                 {(selected || filled) && focused && <View style={styles.shadows} />}
               </View>
             );
